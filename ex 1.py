@@ -1,6 +1,7 @@
 #imports the libraries
 from tkinter import *
 import random
+from PIL import Image, ImageTk
 
 
 # defining function to swap frames
@@ -116,6 +117,8 @@ def displayResults():
     else:
         rank.config(text="Better luck next time")
 
+
+
 #to play the quiz again
 def playAgain():
     displayMenu()
@@ -139,6 +142,11 @@ frame3 = Frame(root, bg="#542367")
 frame1.place(x=0, y=0, width=400, height=400)
 frame2.place(x=0, y=0, width=400, height=400)
 frame3.place(x=0, y=0, width=400, height=400)
+
+#background image
+image = Image.open("background 1.png")
+image = image.resize((400,400))
+background = ImageTk.PhotoImage(image)
 
 
 # frame 1 difficulty menu
