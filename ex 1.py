@@ -2,7 +2,7 @@
 from tkinter import *
 import random
 from PIL import Image, ImageTk
-
+from tkinter import ttk
 
 # defining function to swap frames
 
@@ -42,6 +42,8 @@ def startQuiz(difficulty):
 #displays random addition and subtraction questions
 def displayProblem():
     global answer, attempt, question
+
+    progress["value"] = question
 
     if question == 10:
         displayResults()
@@ -165,13 +167,13 @@ bg3.place (x=0,y=0, relwidth=1 , relheight=1)
 label1 = Label(frame1, text="DIFFICULTY LEVEL",font=("Roboto", 18), bg="#542367", fg="white")
 label1.pack(pady=30)
 
-button1 = Button(frame1, text="Easy", command=lambda: startQuiz("Easy"), width=20)
+button1 = Button(frame1, text="Easy", command=lambda: startQuiz("Easy"), width=20, font=("Roboto", 12, "bold"),relief="flat", cursor="hand2")
 button1.pack(pady=10)
 
-button2 = Button(frame1, text="Medium", command=lambda: startQuiz("Medium"), width=20)
+button2 = Button(frame1, text="Medium",command=lambda: startQuiz("Medium"),width=20, font=("Roboto", 12, "bold"),relief="flat", cursor="hand2")
 button2.pack(pady=10)
 
-button3 = Button(frame1, text="Hard", command=lambda: startQuiz("Hard"), width=20)
+button3 = Button(frame1, text="Hard",command=lambda: startQuiz("Hard"),width=20, font=("Roboto", 12, "bold"),relief="flat", cursor="hand2")
 button3.pack(pady=10)
 
 
@@ -182,6 +184,10 @@ welcome.pack(pady=15)
 
 question_number = Label(frame2, text="", bg="#542367", fg="white")
 question_number.pack(pady=10)
+
+#progress bar
+progress = ttk.Progressbar(frame2, length = 250, maximum=10)
+progress.pack(pady=5)
 
 score_label = Label(frame2, text="Score 0", font = ("Roboto", 12), bg="#542367", fg ="white")
 score_label.pack(pady=5)
