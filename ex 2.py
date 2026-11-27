@@ -1,5 +1,6 @@
 from tkinter import *
 import random
+from PIL import Image,ImageTk
 
 punchline =""
 jokecount = 0
@@ -33,12 +34,25 @@ def showPunchline():
 #creating the window
 root = Tk()
 root.title("joke assistant")
-root.geometry("500x500")
+root.geometry("500x650")
 root.config(bg="#101C30")
+
+#adding the logo
+image = Image.open("alexa.png")
+image = image.resize((100,100))
+logo = ImageTk.PhotoImage(image)
+
+logoLabel = Label(root,image=logo, bg="#101C30")
+logoLabel.pack(pady=15)
+
 
 #title
 titleLabel = Label(root, text= "Alexa Joke Assistant", font=("Arial" , 22 , "bold"), bg="#101C30", fg="white")
 titleLabel.pack(pady=5)
+
+#sub title
+subtitle = Label(root,text="Your daily dose of jokes!", font=("Arial", 11),bg="#101C30",fg="lightgrey")
+subtitle.pack(pady=5)
 
 #joke counter
 counterLabel = Label(root,text="Jokes told 0", font=("Arial" , 11), bg="#101C30", fg="lightgrey")
