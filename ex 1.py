@@ -82,6 +82,8 @@ def isCorrect():
                 score = score + 5
                 feedback.config(text="Correct! +5")
 
+            score_label.config(text="Score: " + str(score))
+
             question = question + 1
             root.after(1000, displayProblem)
 
@@ -118,7 +120,6 @@ def displayResults():
         rank.config(text="Better luck next time")
 
 
-
 #to play the quiz again
 def playAgain():
     displayMenu()
@@ -148,6 +149,16 @@ image = Image.open("background 1.png")
 image = image.resize((400,400))
 background = ImageTk.PhotoImage(image)
 
+#places the image 
+bg1 = Label(frame1, image=background)
+bg1.place (x=0,y=0, relwidth=1 , relheight=1)
+
+bg2 = Label(frame2, image=background)
+bg2.place (x=0,y=0, relwidth=1 , relheight=1)
+
+bg3 = Label(frame3, image=background)
+bg3.place (x=0,y=0, relwidth=1 , relheight=1)
+
 
 # frame 1 difficulty menu
 
@@ -171,6 +182,9 @@ welcome.pack(pady=15)
 
 question_number = Label(frame2, text="", bg="#542367", fg="white")
 question_number.pack(pady=10)
+
+score_label = Label(frame2, text="Score 0", font = ("Roboto", 12), bg="#542367", fg ="white")
+score_label.pack(pady=5)
 
 question_label = Label(frame2, text="", font=("Roboto", 24),bg="#542367", fg="white")
 question_label.pack(pady=15)
